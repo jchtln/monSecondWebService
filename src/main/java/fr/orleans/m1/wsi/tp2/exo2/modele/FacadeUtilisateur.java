@@ -5,10 +5,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class FacadeUtilisateur {
 
-    public String enregistrerUtilisateur(String nom, String password) {
 
-        Etudiant etudiant = new Etudiant(nom,prenom,adresse);
-        this.etudiants.put(etudiant.getNumeroEtudiant(),etudiant);
-        return etudiant.getNumeroEtudiant();
+    Map<String,Utilisateur> utilisateurs;
+
+    public String enregistrerUtilisateur(String nom, String password) {
+        Utilisateur utilisateur = new Utilisateur(nom, password);
+        this.utilisateur.put(nom,utilisateur);
+
     }
 }
