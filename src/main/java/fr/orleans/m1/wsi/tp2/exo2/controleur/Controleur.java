@@ -70,3 +70,9 @@ public class Controleur {
 
 
 
+// POST/GET /utilisateur/{id}/playlist?LOGIN=&PASSWORD=
+//  nomPlaylist
+
+// POST /utilisateur/{idUtilisateur}/video?LOGIN=&PASSWORD=
+  // {titre __, contenu,__}
+//GET /video
