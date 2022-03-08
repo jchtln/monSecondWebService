@@ -1,0 +1,35 @@
+##création de l'utilisateur
+POST http://localhost:8080/msws/utilisateur/
+Content-Type: application/json
+
+{
+  "nom": "julien",
+  "password": "mdp"
+}
+
+> {%
+client.global.set("locationUtilisateur", response.headers.valueOf("Location"));
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "L'utilisateur aurait dû être créé");
+});
+%}
+
+###
+GET {{locationUtilisateur}}?nom=julien&password=mdp
+
+> {%
+client.global.set("locationUtilisateur", response.headers.valueOf("Location"));
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Recuperation impossible");
+});
+%}
+
+###
+GET http://localhost:8080/msws/utilisateur/12345?nom=julien&password=mdp
+
+> {%
+client.global.set("locationUtilisateur", response.headers.valueOf("Location"));
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 404, "Introuvable");
+});
+%}
