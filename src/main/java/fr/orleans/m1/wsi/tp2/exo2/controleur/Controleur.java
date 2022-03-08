@@ -49,7 +49,7 @@ public class Controleur {
             if (utilisateur.getNom().equals(nom) && utilisateur.getNom().equals(password)) {
                 return ResponseEntity.ok(utilisateur);
             } else {
-                return ResponseEntity.status(HttpStatus.FORBIDDEN);
+                return  ResponseEntity.notFound().build();
             }
         } catch (UtilisateurInexistantException e) {
             return ResponseEntity.notFound().build();

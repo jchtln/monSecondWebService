@@ -1,5 +1,5 @@
 ##création de l'utilisateur
-POST http://localhost:8080/msws/utilisateur/
+POST http://localhost:8080/msws/utilisateur
 Content-Type: application/json
 
 {
