@@ -55,6 +55,15 @@ public class Controleur {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @PostMapping(URI_UTILISATEUR + "{id}" + URI_PLIST)
+    public ResponseEntity<String> deposerVideo(@RequestBody Video video){
+
+        this.facadeUtilisateur.deposerVideo(video.getUrl(),video.getDescription(),video.getUrl());
+        return ResponseEntity.created(URI.create(SERVEUR + URI_WS + URI_UTILISATEUR + "/" + id + URI_PLIST))
+                .body("La video est deposée");
+    }
 }
 
 

@@ -12,6 +12,9 @@ public class FacadeUtilisateur {
     private Map<String,Utilisateur> utilisateurById;
     private Map<String,Utilisateur> utilisateurByLogin;
 
+    private Map<Utilisateur,Video> playlistByUser;
+    private Map<String,Video> videoMap;
+
 
     public FacadeUtilisateur(){
         this.utilisateurById = new HashMap<>();
@@ -45,11 +48,13 @@ public class FacadeUtilisateur {
     }
 
 
-//    public String deposerVideo(String url, String description, String titre){
-//        Video video = new Video(url,description,titre);
-//       // this.video.put(utilisateur,video);
-//        return null;
-//    }
+    public String deposerVideo(String url, String description, String titre){
+        Video video = new Video(url,description,titre);
+        videoMap.put(video.getId(),video);
+        playlistByUser.put(idUtilisateur,video);
+
+        return ("la vdeo");
+    }
 
 
 }
